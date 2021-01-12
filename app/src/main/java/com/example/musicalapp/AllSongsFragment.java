@@ -1,21 +1,15 @@
 package com.example.musicalapp;
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-//5- define recyclerView & set layout manager
-//6- define & set adapter in main activity
+
 public class AllSongsFragment extends Fragment implements SongsInterface{
     RecyclerView recyclerView;
     ArrayList<Songs> songsList = new ArrayList<>();

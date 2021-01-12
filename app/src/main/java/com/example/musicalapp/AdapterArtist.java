@@ -1,27 +1,14 @@
 package com.example.musicalapp;
-
 import android.content.Context;
-import android.media.MediaPlayer;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
-//1-Context , ArrayList ( Constructor )-/
-//2- Class ViewHolder extend RecyclerView.viewHolder (Define Views ) inner
-//3- Adapter extend RecyclerView.Adapter<ViewHolder>
-//4-1 getItemCount > arrayList.size
-//4-2 onCreateViewHolder > layout
-//4-3 onBindViewHolder > setText , onClick ,getText
-
 public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.SongsViewHolder>{
      Context context;
      ArrayList<Songs> artistList;
