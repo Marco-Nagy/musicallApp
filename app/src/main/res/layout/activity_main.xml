@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="3dp"
+        app:tabIndicatorHeight="5dp"
+        app:tabIndicatorColor="@color/white"
+        android:background="@color/blue"
+        app:tabMode="fixed">
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/white"-->
+<!--            />-->
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:id="@+id/item_albums"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--        />-->
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/naw_player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/naw_player"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:background="@color/blue"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <TextView
+            android:layout_margin="@dimen/_3sdp"
+            android:drawableStart="@drawable/ic_baseline_play"
+            android:id="@+id/song_title_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/seekBar"
+            android:text="@string/aho_lelil_we_adda"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/white"
+            android:background="@color/red"
+            />
+
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="389dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_marginTop="4dp"
+            android:background="@color/white"
+            android:outlineSpotShadowColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/song_title_play" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_artist"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/amr_diab"
+            app:civ_border_color="@color/red"
+            app:civ_border_width="@dimen/_3sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ic_previous"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBar" />
+
+        <ImageView
+            android:id="@+id/ic_play"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ic_forward"
+            app:layout_constraintStart_toEndOf="@id/ic_previous"
+            app:layout_constraintTop_toBottomOf="@id/seekBar"
+            app:srcCompat="@drawable/play" />
+
+        <ImageView
+            android:id="@+id/ic_forward"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_3sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ic_play"
+            app:layout_constraintStart_toEndOf="@id/ic_play"
+            app:srcCompat="@drawable/forward"
+            />
+
+        <ImageView
+            android:id="@+id/ic_previous"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_3sdp"
+            app:layout_constraintStart_toEndOf="@+id/image_artist"
+            app:layout_constraintBottom_toBottomOf="@id/ic_play"
+            app:layout_constraintEnd_toStartOf="@id/ic_play"
+            app:layout_constraintTop_toTopOf="@id/ic_play"
+            app:srcCompat="@drawable/previous" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

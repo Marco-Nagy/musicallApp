@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArtistsFragment"
+    android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="#00ACC1"
+            android:orientation="vertical"
+            android:id="@+id/recycler_view_artist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_105sdp"
+            android:layout_marginBottom="@dimen/_111sdp"
+            android:paddingStart="@dimen/_16sdp"
+            tools:listitem="@layout/item_artists" />
+    </FrameLayout>
+

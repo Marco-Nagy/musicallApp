@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Musical App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="aho_lelil_we_adda">Aho Leil We Adda </string>
+    <string name="kan_kol_haga">kan kol haga </string>
+    <string name="al_ayel"> al_ayel </string>
+    <string name="f2_ossa_zghire_ktir"> ossa zghire ktir </string>
+    <string name="f3_al_bostah">al bostah </string>
+    <string name="h0_helwa_belady_el_samra">helwa belady el samra </string>
+    <string name="h1_sonnet_el_haya">sonnet el haya </string>
+    <string name="h2_bel_bont_el_3reed">bel bont el areed</string>
+    <string name="m1_albi_maishbhnesh">albi maishbhnesh</string>
+    <string name="m2_efta7o_ya_hamam">eftaho ya hamam</string>
+    <string name="m3_kol_el_mafrood">kol el mafrood</string>
+    <string name="n1__albi_ya_albi">albi ya albi</string>
+
+</resources>
