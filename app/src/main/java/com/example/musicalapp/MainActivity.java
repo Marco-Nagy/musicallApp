@@ -16,13 +16,20 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewSongName;
     ImageView imageViewArtist;
     ImageView play;
+    MediaPlayer mpp;
+    MediaPlayer.OnCompletionListener completionListener =new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textViewSongName=findViewById(R.id.song_title_play);
-        imageViewArtist=findViewById(R.id.image_artist);
-        play=findViewById(R.id.ic_play);
+        textViewSongName = findViewById(R.id.song_title_play);
+        imageViewArtist = findViewById(R.id.image_artist);
+        play = findViewById(R.id.ic_play);
         ViewPager2 viewPager2 = findViewById(R.id.view_pager);
         viewPager2.setAdapter(new PagerAdapter(this));
         TabLayout tabLayout = findViewById(R.id.tab_layout);
@@ -32,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         tab.setText("All Songs");
-                                tab.setIcon(R.drawable.all_songs);
+                        tab.setIcon(R.drawable.all_songs);
                         break;
                     case 1:
                         tab.setText("Artists");
@@ -41,31 +48,51 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-       tabLayoutMediator.attach();
+        tabLayoutMediator.attach();
     }
-public void playSong(Songs song){
-    if (song == null) return;
-    imageViewArtist.setImageResource(song.getImage());
-    textViewSongName.setText(song.getSongTitle());
-       final MediaPlayer mpp = MediaPlayer.create(this, song.getSong());
-       mpp.start();
-    play.setImageResource(R.drawable.pause);
-    play.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            int i=0;
-            if (i%2==0){
-                play.setImageResource(R.drawable.play);
-                mpp.pause();
-                i++;
-            }else {
-                play.setImageResource(R.drawable.pause);
-                mpp.start();
-                i++;
 
+    public void playSong(Songs song) {
+        if (song == null) return;
+        imageViewArtist.setImageResource(song.getImage());
+        textViewSongName.setText(song.getSongTitle());
+
+        releaseMediaPlayer();
+        mpp = MediaPlayer.create(this, song.getSong());
+        mpp.start();
+        mpp.setOnCompletionListener(completionListener);
+
+        play.setImageResource(R.drawable.pause);
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = 0;
+                if (i % 2 == 0) {
+                    play.setImageResource(R.drawable.play);
+                    mpp.pause();
+                    i++;
+                } else {
+                    play.setImageResource(R.drawable.pause);
+                    mpp.start();
+                    i++;
+
+                }
             }
-        }
-    });
+        });
 
-}
+
+    }
+
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mpp != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mpp.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mpp = null;
+        }
+    }
 }
